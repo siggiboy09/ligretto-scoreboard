@@ -8,7 +8,7 @@ body {
 .title {
     color: white;
     text-align: center;
-    font-size: 25px;
+    font-size: 40px;
 }
 
 .counter button {
@@ -20,11 +20,13 @@ body {
 }
 
 .counter {
+    background-color: red;
+
     text-align: center;
     color: white;
     font-size: 75px;
 
-    height: 100px;
+    height: 208px;
 
     margin: 20px;
     
@@ -36,4 +38,22 @@ body {
 
 .b-rigth {
     right: 20px;
+}
+
+button {
+    font-size: 100px;
+}
+
+h3 {
+    font-size: 50px;
+}
+
+.buttons {
+    margin: 20px;
+    height: 143px;
+}
+
+.buttons button {
+    width: 33%;
+    height: 100%;
 }
