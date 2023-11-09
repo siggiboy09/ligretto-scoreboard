@@ -3,8 +3,6 @@
         <title>Ligreto scoreboard</title>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
-        <meta meta name="viewport" content="width=device-width, user-scalable=no">
     </head>
     <body>
         <div class="title">
@@ -39,9 +37,20 @@
             <div id="counter4">0</div>
         </div>
         <div class="buttons">
-            <button onclick="save()">save</button>
-            <button onclick="load()">load</button>
-            <button onclick="reset()">reset</button>
+            <button onclick="save()" class="material-symbols-outlined">download</button>
+            <button onclick="load()" class="material-symbols-outlined" style="margin-left: 4.5%;">upload</button>
+            <button onclick="reset()" class="material-symbols-outlined" style="float: right;">refresh</button>
+        </div>
+
+        <div id="links">
+            <h3>LINKS</h3>
+            <ul>
+                <li><a href="https://discord.gg/invite/SKPJ7XzZfd">discord</a></li>
+                <li><a href="https://twitch.tv/farmstead001">twitch</a></li>
+                <li><a href="https://youtube.com/@farmstead001">youtube</a></li>
+                <li><a href="https://tiktok.com/@farmstead001">tiktok</a></li>
+                <li><a href="https://github.com/farmstead001">github</a></li>
+            </ul>
         </div>
         <script src="js/main.js"></script>
     </body>

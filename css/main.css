@@ -1,12 +1,20 @@
+:root {
+    --red: #D83F31;
+    --dark-orange: #EE9322;
+    --orange: #E9B824;
+    --blue: #219C90;
+}
+
 body {
-    background-color: black;
+    background-color: var(--red);
 
     margin: 0;
     padding: 0;
+
+    color: white;
 }
 
 .title {
-    color: white;
     text-align: center;
     font-size: 40px;
     font-family: sans-serif;
@@ -18,17 +26,18 @@ body {
 
     height: 100px;
     width: 15%;
+
+    color: white;
 }
 
 .counter {
-    background-color: rgb(45, 45, 45);
+    background-color: var(--dark-orange);
 
     text-align: center;
-    color: white;
     font-size: 75px;
     font-family: sans-serif;
 
-    height: 205px;
+    height: 208px;
 
     margin: 20px;
     
@@ -36,11 +45,11 @@ body {
 }
 
 .b-left {
-    left: 18px;
+    left: 20px;
 }
 
 .b-rigth {
-    right: 18px;
+    right: 20px;
 }
 
 button {
@@ -50,8 +59,7 @@ button {
     border: none;
     border-radius: 8px;
 
-    color: white;
-    background-color: black;
+    background-color: var(--orange);
 }
 
 h3 {
@@ -66,4 +74,34 @@ h3 {
 .buttons button {
     width: 30%;
     height: 100%;
+
+    font-size: 100px;
+
+    color: white;
+}
+
+
+#links {
+    height: 100%;
+    background-color: var(--blue);
+    padding: 5px;
+
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 50px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+
+    text-align: center;
+}
+
+#links a {
+    color: white;
+    text-decoration: none;
+}
+
+#links li {
+    list-style-type: none;
+    margin: 10px;
 }
