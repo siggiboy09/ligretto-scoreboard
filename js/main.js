@@ -6,22 +6,22 @@ let counter4 = 0
 function subtract(counter) {
     switch (counter) {
         case 1:
-            counter1--;
+            counter1 -= prompt("player1 minus: ");
             document.getElementById("counter1").innerHTML = counter1;
             break;
 
         case 2:
-            counter2--;
+            counter2 -= prompt("player2 minus: ");
             document.getElementById("counter2").innerHTML = counter2;
             break;
 
         case 3:
-            counter3--;
+            counter3 -= prompt("player3 minus: ");
             document.getElementById("counter3").innerHTML = counter3;
             break;
 
         case 4:
-            counter4--;
+            counter4 -= prompt("player4 minus: ");
             document.getElementById("counter4").innerHTML = counter4;
             break;
     }
@@ -32,22 +32,22 @@ function subtract(counter) {
 function add(counter) {
     switch (counter) {
         case 1:
-            counter1++;
+            counter1 += prompt("player1 plus: ");
             document.getElementById("counter1").innerHTML = counter1;
             break;
 
         case 2:
-            counter2++;
+            counter2 += prompt("player2 plus: ");
             document.getElementById("counter2").innerHTML = counter2;
             break;
 
         case 3:
-            counter3++;
+            counter3 += prompt("player3 plus: ");
             document.getElementById("counter3").innerHTML = counter3;
             break;
 
         case 4:
-            counter4++;
+            counter4 += prompt("player4 plus: ");
             document.getElementById("counter4").innerHTML = counter4;
             break;
     }
