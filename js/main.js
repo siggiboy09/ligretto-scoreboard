@@ -7,6 +7,21 @@ var counter6 = 0;
 var counter7 = 0;
 var counter8 = 0;
 
+var players = 0;
+
+var player1 = 'player1';
+var player2 = 'player2';
+var player3 = 'player3';
+var player4 = 'player4';
+var player5 = 'player5';
+var player6 = 'player6';
+var player7 = 'player7';
+var player8 = 'player8';
+
+function onload() {
+
+};
+
 function subtract(counter) {
     switch (counter) {
         case 1:
@@ -140,6 +155,8 @@ function reset() {
     counter7 = 0;
     counter8 = 0;
 
+    
+
     localStorage.setItem("counter1", counter1);
     localStorage.setItem("counter2", counter2);
     localStorage.setItem("counter3", counter3);
@@ -157,10 +174,28 @@ function reset() {
     document.getElementById("counter6").innerHTML = counter6;
     document.getElementById("counter7").innerHTML = counter7;
     document.getElementById("counter8").innerHTML = counter8;
+
+    player1 = 'player1';
+    player2 = 'player2';
+    player3 = 'player3';
+    player4 = 'player4';
+    player5 = 'player5';
+    player6 = 'player6';
+    player7 = 'player7';
+    player8 = 'player8';
+
+    document.getElementById("player1").innerHTML = player1;
+    document.getElementById("player2").innerHTML = player2;
+    document.getElementById("player3").innerHTML = player3;
+    document.getElementById("player4").innerHTML = player4;
+    document.getElementById("player5").innerHTML = player5;
+    document.getElementById("player6").innerHTML = player6;
+    document.getElementById("player7").innerHTML = player7;
+    document.getElementById("player8").innerHTML = player8;
 }
 
 function changePlayers() {
-    var players = parseInt(prompt("how many players are there? "))
+    players = parseInt(prompt("how many players are there? "))
     switch (players) {
         case 8:
             document.getElementById("divcounter8").style.display = "block";
@@ -225,3 +260,47 @@ function changePlayers() {
             document.getElementById("divcounter3").style.display = "none";
     }
 }
+
+function changeName(id) {
+    switch (id) {
+        case 1:
+            player1 = prompt("Please enter a name for player1");
+            document.getElementById("player1").innerHTML = player1;
+            break;
+
+        case 2:
+            player2 = prompt("Please enter a name for player2");
+            document.getElementById("player2").innerHTML = player2;
+            break;
+
+        case 3:
+            player3 = prompt("Please enter a name for player3");
+            document.getElementById("player3").innerHTML = player3;
+            break;
+
+        case 4:
+            player4 = prompt("Please enter a name for player4");
+            document.getElementById("player4").innerHTML = player4;
+            break;
+        
+        case 5:
+            player5 = prompt("Please enter a name for player5");
+            document.getElementById("player5").innerHTML = player5;
+            break;
+
+        case 6:
+            player6 = prompt("Please enter a name for player6");
+            document.getElementById("player6").innerHTML = player6;
+            break;
+
+        case 7:
+            player7 = prompt("Please enter a name for player7");
+            document.getElementById("player7").innerHTML = player7;
+            break;
+
+        case 8:
+            player8 = prompt("Please enter a name for player8");
+            document.getElementById("player8").innerHTML = player8;
+            break;
+    };
+};

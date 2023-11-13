@@ -119,3 +119,8 @@ h3 {
     list-style-type: none;
     margin: 10px;
 }
+
+.nameButton {
+    position: absolute;
+    left: 20px;
+}
