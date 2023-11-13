@@ -18,6 +18,10 @@ var player6 = 'player6';
 var player7 = 'player7';
 var player8 = 'player8';
 
+var root = document.querySelector(':root');
+
+let colorPalette1 = {background: "#D83F31", boards: "#EE9322", buttons: "#E9B824", linkBackground: "#219C90", text: "#fff"}
+
 function onload() {
     document.getElementById("divcounter8").style.display = "none";
     document.getElementById("divcounter7").style.display = "none";

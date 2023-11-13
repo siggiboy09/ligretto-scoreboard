@@ -1,17 +1,18 @@
 :root {
-    --red: #D83F31;
-    --dark-orange: #EE9322;
-    --orange: #E9B824;
-    --blue: #219C90;
+    --background: #D83F31;
+    --boards: #EE9322;
+    --buttons: #E9B824;
+    --link-background: #219C90;
+    --text: #fff;
 }
 
 body {
-    background-color: var(--red);
+    background-color: var(--background);
 
     margin: 0;
     padding: 0;
 
-    color: white;
+    color: var(--text);
 }
 
 .title {
@@ -27,11 +28,11 @@ body {
     height: 100px;
     width: 15%;
 
-    color: white;
+    color: var(--text);
 }
 
 .counter {
-    background-color: var(--dark-orange);
+    background-color: var(--boards);
 
     text-align: center;
     font-size: 75px;
@@ -59,7 +60,7 @@ button {
     border: none;
     border-radius: 8px;
 
-    background-color: var(--orange);
+    background-color: var(--buttons);
 }
 
 h3 {
@@ -77,7 +78,7 @@ h3 {
 
     font-size: 100px;
 
-    color: white;
+    color: var(--text);
 }
 
 .button {
@@ -91,16 +92,16 @@ h3 {
 
     font-size: 100px;
 
-    color: white;
+    color: var(--text);
 }
 
 
 #links {
     height: 100%;
-    background-color: var(--blue);
+    background-color: var(--link-background);
     padding: 5px;
 
-    color: white;
+    color: var(--text);
     text-decoration: none;
     list-style-type: none;
     font-size: 50px;
@@ -111,7 +112,7 @@ h3 {
 }
 
 #links a {
-    color: white;
+    color: var(--text);
     text-decoration: none;
 }
 
