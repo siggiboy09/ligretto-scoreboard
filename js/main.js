@@ -19,7 +19,10 @@ var player7 = 'player7';
 var player8 = 'player8';
 
 function onload() {
-
+    document.getElementById("divcounter8").style.display = "none";
+    document.getElementById("divcounter7").style.display = "none";
+    document.getElementById("divcounter6").style.display = "none";
+    document.getElementById("divcounter5").style.display = "none";
 };
 
 function subtract(counter) {
