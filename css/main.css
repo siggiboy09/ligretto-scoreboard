@@ -80,6 +80,20 @@ h3 {
     color: white;
 }
 
+.button {
+    margin: 20px;
+    height: 143px;
+}
+
+.button button {
+    width: 100%;
+    height: 100%;
+
+    font-size: 100px;
+
+    color: white;
+}
+
 
 #links {
     height: 100%;
