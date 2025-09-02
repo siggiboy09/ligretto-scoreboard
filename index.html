@@ -1,98 +1,30 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Ligreto scoreboard</title>
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     </head>
-    <body onload="onload()">
-        <div class="title">
-            <h1>Ligretto scoreboard</h1>
+    <body onload="init()">
+        <div id="start_screen" class="screen text-center">
+            <h1>Start a new game!</h1>
+            <button onclick="new_game()" class="btn btn-primary">New game</button>
         </div>
 
-        <div class="counter" id="divcounter1">
-            <button class="nameButton material-symbols-outlined" onclick="changeName(1)">edit</button>
-            <h3 id="player1">player 1</h3>
-            <button onclick="subtract(1)" class="b-left material-symbols-outlined">remove</button>
-            <button onclick="add(1)" class="b-rigth material-symbols-outlined">add</button>
-            <div id="counter1">0</div>
+        <div id="game_selector_screen" class="screen">
+            <h1>Select a game!</h1>
         </div>
 
-        <div class="counter" id="divcounter2">
-            <button class="nameButton material-symbols-outlined" onclick="changeName(2)">edit</button>
-            <h3 id="player2">player 2</h3>
-            <button onclick="subtract(2)" class="b-left material-symbols-outlined">remove</button>
-            <button onclick="add(2)" class="b-rigth material-symbols-outlined">add</button>
-            <div id="counter2">0</div>
+        <div id="game_screen" class="screen">
         </div>
 
-        <div class="counter" id="divcounter3">
-            <button class="nameButton material-symbols-outlined" onclick="changeName(3)">edit</button>
-            <h3 id="player3">player 3</h3>
-            <button onclick="subtract(3)" class="b-left material-symbols-outlined">remove</button>
-            <button onclick="add(3)" class="b-rigth material-symbols-outlined">add</button>
-            <div id="counter3">0</div>
-        </div>
-
-        <div class="counter" id="divcounter4">
-            <button class="nameButton material-symbols-outlined" onclick="changeName(4)">edit</button>
-            <h3 id="player4">player 4</h3>
-            <button onclick="subtract(4)" class="b-left material-symbols-outlined">remove</button>
-            <button onclick="add(4)" class="b-rigth material-symbols-outlined">add</button>
-            <div id="counter4">0</div>
-        </div>
-
-        <div class="counter" id="divcounter5">
-            <button class="nameButton material-symbols-outlined" onclick="changeName(5)">edit</button>
-            <h3 id="player5">player 5</h3>
-            <button onclick="subtract(5)" class="b-left material-symbols-outlined">remove</button>
-            <button onclick="add(5)" class="b-rigth material-symbols-outlined">add</button>
-            <div id="counter5">0</div>
-        </div>
-
-        <div class="counter" id="divcounter6">
-            <button class="nameButton material-symbols-outlined" onclick="changeName(6)">edit</button>
-            <h3 id="player6">player 6</h3>
-            <button onclick="subtract(6)" class="b-left material-symbols-outlined">remove</button>
-            <button onclick="add(6)" class="b-rigth material-symbols-outlined">add</button>
-            <div id="counter6">0</div>
-        </div>
-
-        <div class="counter" id="divcounter7">
-            <button class="nameButton material-symbols-outlined" onclick="changeName(7)">edit</button>
-            <h3 id="player7">player 7</h3>
-            <button onclick="subtract(7)" class="b-left material-symbols-outlined">remove</button>
-            <button onclick="add(7)" class="b-rigth material-symbols-outlined">add</button>
-            <div id="counter7">0</div>
-        </div>
-
-        <div class="counter" id="divcounter8">
-            <button class="nameButton material-symbols-outlined" onclick="changeName(8)">edit</button>
-            <h3 id="player8">player 8</h3>
-            <button onclick="subtract(8)" class="b-left material-symbols-outlined">remove</button>
-            <button onclick="add(8)" class="b-rigth material-symbols-outlined">add</button>
-            <div id="counter8">0</div>
-        </div>
-
-        <div class="buttons">
-            <button onclick="save()" class="material-symbols-outlined">download</button>
-            <button onclick="load()" class="material-symbols-outlined" style="margin-left: 4.5%;">upload</button>
-            <button onclick="reset()" class="material-symbols-outlined" style="float: right;">refresh</button>
-        </div>
-        <div class="button">
-            <button onclick="changePlayers()">change players</button>
-        </div>
-
-        <div id="links">
-            <h3>LINKS</h3>
-            <ul>
-                <li><a href="https://discord.gg/invite/SKPJ7XzZfd">discord</a></li>
-                <li><a href="https://twitch.tv/farmstead001">twitch</a></li>
-                <li><a href="https://youtube.com/@farmstead001">youtube</a></li>
-                <li><a href="https://tiktok.com/@farmstead001">tiktok</a></li>
-                <li><a href="https://github.com/farmstead001">github</a></li>
-            </ul>
+        <div id="game_over_screen" class="screen">
+            <h1>The winner is: YOU!</h1>
         </div>
 
         <script src="js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
     </body>
 </html>
