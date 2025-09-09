@@ -12,3 +12,9 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.options_button {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

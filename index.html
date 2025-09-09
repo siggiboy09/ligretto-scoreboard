@@ -4,26 +4,43 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Ligreto scoreboard</title>
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="main.css">
     </head>
     <body onload="init()">
-        <div id="start_screen" class="screen text-center">
+        <div id="new_game_screen" class="screen text-center">
             <h1>Start a new game!</h1>
             <button onclick="new_game()" class="btn btn-primary">New game</button>
         </div>
 
         <div id="game_selector_screen" class="screen">
             <h1>Select a game!</h1>
+            <div id="games">
+                <!--<div id="game_id">
+                    <h2 id="game_name"></h2>
+                    <button onclick="play_game('')"></button>
+                </div>-->
+            </div>
         </div>
 
-        <div id="game_screen" class="screen">
+        <div id="game_screen" class="screen text-center pt-2">
+            <p class="options_button btn btn-primary m-2">|</p>
+            <h1 id="game_title"></h1>
+            <div id="player_cards">
+                <!--<div id="player_1" class="card m-2">
+                    <h2 id="player_1_name">Player 1</h2>
+                    <p id="player_1_score">0</p>
+                    <button onclick="score_add('player_1')" class="btn btn-primary">+</button>
+                    <button onclick="score_remove('player_1')" class="btn btn-primary">-</button>
+                </div>-->
+            </div>
+            <button class="btn btn-primary" onclick="delete_current_game()">Delete game</button>
         </div>
 
         <div id="game_over_screen" class="screen">
             <h1>The winner is: YOU!</h1>
         </div>
 
-        <script src="js/main.js"></script>
+        <script src="main.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
     </body>
