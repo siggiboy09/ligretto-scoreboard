@@ -19,6 +19,7 @@ const game_over_screen = document.getElementById("game_over_screen");
 // == ELEMENTS ==
 const game_title = document.getElementById("game_title");
 const player_cards = document.getElementById("player_cards");
+const game_cards = document.getElementById("game_cards");
 
 let current_game = "";
 
@@ -37,6 +38,9 @@ function init() {
     if (current_game != "") {
         set_screen(game_screen);
         load_current_game();
+    } 
+    else if ( current_game == "" && Object.keys(games).length > 0) {
+        open_games_screen();
     } else {
         set_screen(new_game_screen);
     };
@@ -83,14 +87,40 @@ function new_game() {
 function load_current_game() {
     game_title.innerText = current_game;
     Object.keys(games[current_game]).forEach(player => {
-        draw_player_card(games[current_game][player].id, games[current_game][player].name, games[current_game][player].score)
+        draw_player_card(games[current_game][player].id, games[current_game][player].name, games[current_game][player].score);
     });
 }
 
-function reset_game() {
+function play_game(game) {
+    console.log(game);
+}
+
+// == DELETE CURRENT GAME ==
+function delete_current_game() {
+    delete games[current_game];
+    current_game = "";
+    save();
     player_cards.innerHTML = "";
+    set_screen(new_game_screen);
 };
 
+// == DELETE GAME ==
+function delete_game(game) {
+    delete games[game];
+    save();
+};
+
+// == OPEN GAME SELECTOR SCREEN ==
+function open_games_screen() {
+    Object.keys(games).forEach(game => {
+        draw_game_card(game);
+    });
+
+    set_screen(game_selector_screen);
+    player_cards.innerHTML = "";
+    current_game = ""
+    save();
+}
 
 
 
@@ -152,14 +182,6 @@ function save() {
     localStorage.setItem("current_game", current_game);
 }
 
-// == DELETE CURRENT GAME ==
-function delete_current_game() {
-    delete games[current_game];
-    current_game = "";
-    save();
-    reset_game();
-    set_screen(new_game_screen);
-};
 
 // == CHANGE SCORE ==
 function change_score(player_id) {
@@ -190,11 +212,17 @@ function set_screen(screen) {
     game_over_screen.style.display = "none";
 
     screen.style.display = "block";
+
+    save();
 };
 
 // == DRAW PLAYER CARD ==
 function draw_player_card(player_id, player_name, player_score) {
     player_cards.insertAdjacentHTML("beforeend", "<div id='" + player_id + "' class='card border-2 rounded m-2 gap-2 p-2'><h2 id='" + player_id + "_name'>" + player_name + "</h2><p id='" + player_id + "_score'>" + player_score + "</p><button onClick='change_score(" + player_id + ")' class='btn btn-primary'>+/-</button><button onClick='change_name(" + player_id + ")' class='btn btn-primary'>change name</button></div>")
+}
+
+function draw_game_card(game) {
+    game_cards.insertAdjacentHTML("beforeend", "<div id='" + game + "' class='card border-2 rounded m-2 gap-2 p-2'><h2>" + game + "</h2><button onclick='play_game(" + game + ")' class='btn btn-primary'>resume</button><button onclick='delete_game()' class='btn btn-danger'>delete</button></div>")
 }
 
 // == UPDATE VALUES ==
@@ -205,22 +233,3 @@ function update_values() {
         document.getElementById(player + "_score").innerText = games[current_game][player].score;
     });
 };
-
-// == get key name == (chatgpt)
-
-// const obj = {
-//  numbers: [1, 2, 3],
-//  letters: ["a", "b", "c"],
-// };
-
-// Suppose you have a reference to one of the arrays
-
-// const arrRef = obj.letters;
-
-// Find which key points to it
-
-// const key = Object.keys(games).find(k => games[k] === arrRef);
-
-// == foreach key ==
-
-// Object.keys(games).foreach(player => { ... })
