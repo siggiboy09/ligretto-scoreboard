@@ -53,36 +53,6 @@ function init() {
 // =    GAME    =
 // ==============
 
-// == NEW GAME ==
-function new_game() {
-    let game_name = prompt_game_name()
-    games[game_name] ??= {};
-    current_game = game_name;
-    game_title.innerText = current_game;
-
-    let players = parseInt(prompt("How many players are going to play?", "4"));
-    
-    if (!(isNaN(players) || players == 0)) {
-        for (i = 1; i <= players; i++) {
-            let player_name = prompt_player_name(i);
-
-            if (player_name.includes(" ")) {  
-                player_id = player_name.replace(/ /g, "_");  
-            }
-
-            games[current_game][player_id] ??= {};
-            games[current_game][player_id].id = player_id;
-            games[current_game][player_id].name = player_name;
-            games[current_game][player_id].score = 0;
-
-            draw_player_card(player_id, player_name, 0);
-        }
-    };
-
-    save();
-    set_screen(game_screen);
-};
-
 // == LOAD CURRENT GAME ==
 function load_current_game() {
     game_title.innerText = current_game;
@@ -92,23 +62,8 @@ function load_current_game() {
 }
 
 function play_game(game) {
-    console.log(game);
+    // console.log(game);
 }
-
-// == DELETE CURRENT GAME ==
-function delete_current_game() {
-    delete games[current_game];
-    current_game = "";
-    save();
-    player_cards.innerHTML = "";
-    set_screen(new_game_screen);
-};
-
-// == DELETE GAME ==
-function delete_game(game) {
-    delete games[game];
-    save();
-};
 
 // == OPEN GAME SELECTOR SCREEN ==
 function open_games_screen() {
@@ -182,20 +137,77 @@ function save() {
     localStorage.setItem("current_game", current_game);
 }
 
-
 // == CHANGE SCORE ==
 function change_score(player_id) {
-    games[current_game][player_id.id].score += prompt_change_score(player_id.id);
-    update_values()
-    save()
+    games[current_game][player_id].score += prompt_change_score(player_id);
+    update_values();
+    save();
 };
 
 // == CHANGE NAME ==
 function change_name(player_id) {
-    games[current_game][player_id.id].name = prompt_change_name(player_id.id);
-    update_values()
-    save()
+    games[current_game][player_id].name = prompt_change_name(player_id);
+    update_values();
+    save();
 }
+
+
+
+// == DELETE GAME ==
+function delete_game(game) {
+    delete games[game];
+    save();
+};
+
+// == DELETE CURRENT GAME ==
+function delete_current_game() {
+    delete games[current_game];
+    current_game = "";
+    save();
+    player_cards.innerHTML = "";
+    set_screen(new_game_screen);
+};
+
+function delete_game_in_list(game) {
+    delete_game(game);
+    game_cards.innerHTML = "";
+
+    if (games = {}) {
+        set_screen(new_game_screen);
+    } else {
+        
+    }
+}
+
+// == NEW GAME ==
+function new_game() {
+    let game_name = prompt_game_name()
+    games[game_name] ??= {};
+    current_game = game_name;
+    game_title.innerText = current_game;
+
+    let players = parseInt(prompt("How many players are going to play?", "4"));
+    
+    if (!(isNaN(players) || players == 0)) {
+        for (i = 1; i <= players; i++) {
+            let player_name = prompt_player_name(i);
+
+            if (player_name.includes(" ")) {  
+                player_id = player_name.replace(/ /g, "_");  
+            }
+
+            games[current_game][player_id] ??= {};
+            games[current_game][player_id].id = player_id;
+            games[current_game][player_id].name = player_name;
+            games[current_game][player_id].score = 0;
+
+            draw_player_card(player_id, player_name, 0);
+        }
+    };
+
+    save();
+    set_screen(game_screen);
+};
 
 
 
@@ -218,11 +230,55 @@ function set_screen(screen) {
 
 // == DRAW PLAYER CARD ==
 function draw_player_card(player_id, player_name, player_score) {
-    player_cards.insertAdjacentHTML("beforeend", "<div id='" + player_id + "' class='card border-2 rounded m-2 gap-2 p-2'><h2 id='" + player_id + "_name'>" + player_name + "</h2><p id='" + player_id + "_score'>" + player_score + "</p><button onClick='change_score(" + player_id + ")' class='btn btn-primary'>+/-</button><button onClick='change_name(" + player_id + ")' class='btn btn-primary'>change name</button></div>")
+    // player_cards.insertAdjacentHTML("beforeend", "<div id='" + player_id + "' class='card border-2 rounded m-2 gap-2 p-2'><h2 id='" + player_id + "_name'>" + player_name + "</h2><p id='" + player_id + "_score'>" + player_score + "</p><button onClick='change_score(" + player_id + ")' class='btn btn-primary'>+/-</button><button onClick='change_name(" + player_id + ")' class='btn btn-primary'>change name</button></div>")
+
+    const card = document.createElement("div");
+    card.className = "card border-2 rounded m-2 gap-2 p-2";
+    card.id = player_id;
+
+    const h2 = document.createElement("h2");
+    h2.id = player_id + "_name";
+    h2.textContent = player_name;
+
+    const score = document.createElement("p");
+    score.id = player_id + "_score";
+    score.textContent = player_score;
+
+    const change_score_button = document.createElement("button");
+    change_score_button.className = "btn btn-primary";
+    change_score_button.innerText = "Change";
+    change_score_button.onclick = () => change_score(player_id);
+
+    // cange name
+
+    card.append(h2, score, change_score_button);
+    player_cards.append(card);
 }
 
 function draw_game_card(game) {
-    game_cards.insertAdjacentHTML("beforeend", "<div id='" + game + "' class='card border-2 rounded m-2 gap-2 p-2'><h2>" + game + "</h2><button onclick='play_game(" + game + ")' class='btn btn-primary'>resume</button><button onclick='delete_game()' class='btn btn-danger'>delete</button></div>")
+    // game_cards.insertAdjacentHTML("beforeend", "<div id='" + game + "' class='card border-2 rounded m-2 gap-2 p-2'><h2>" + game + "</h2><button onclick='play_game(" + game + ")' class='btn btn-primary'>resume</button><button onclick='delete_game()' class='btn btn-danger'>delete</button></div>")
+
+    const card = document.createElement("div");
+    card.className = "card border-2 rounded m-2 gap-2 p-2";
+    card.id = game;
+
+    const h2 = document.createElement("h2");
+    h2.textContent = game;
+
+    const resume_button = document.createElement("button");
+    resume_button.className = "btn btn-primary";
+    resume_button.textContent = "resume";
+    resume_button.onclick = () => play_game(game);
+
+    const delete_button = document.createElement("button");
+    delete_button.className = "btn btn-danger";
+    delete_button.textContent = "delete";
+    delete_button.onclick = function () {
+        delete_game_in_list(game);
+    };
+
+    card.append(h2, resume_button, delete_button);
+    game_cards.append(card);
 }
 
 // == UPDATE VALUES ==
