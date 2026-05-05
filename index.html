@@ -15,10 +15,6 @@
         <div id="game_selector_screen" class="screen text-center pt-2">
             <h1>Select a game</h1>
             <div id="game_cards">
-                <!--<div id="game_id">
-                    <h2 id="game_name"></h2>
-                    <button onclick="play_game('')"></button>
-                </div>-->
             </div>
             <button onclick="new_game()" class="btn btn-primary">New game</button>
         </div>
@@ -27,14 +23,8 @@
             <button class="options_button btn btn-primary m-2" onclick="open_games_screen()">*</button>
             <h1 id="game_title"></h1>
             <div id="player_cards">
-                <!--<div id="player_1" class="card m-2">
-                    <h2 id="player_1_name">Player 1</h2>
-                    <p id="player_1_score">0</p>
-                    <button onclick="score_add('player_1')" class="btn btn-primary">+</button>
-                    <button onclick="score_remove('player_1')" class="btn btn-primary">-</button>
-                </div>-->
             </div>
-            <button class="btn btn-primary m-2" onclick="delete_current_game()">Delete game</button>
+            <button class="btn btn-danger m-2" onclick="delete_current_game()">Delete game</button>
         </div>
 
         <div id="game_over_screen" class="screen text-center pt-2">

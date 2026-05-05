@@ -62,19 +62,6 @@ function play_game(game) {
     load_current_game();
 }
 
-// == OPEN GAME SELECTOR SCREEN ==
-function open_games_screen() {
-    game_cards.innerHTML = "";
-    Object.keys(games).forEach(game => {
-        draw_game_card(game);
-    });
-
-    set_screen(game_selector_screen);
-    player_cards.innerHTML = "";
-    current_game = ""
-    save();
-}
-
 
 
 
@@ -95,10 +82,22 @@ function prompt_player_name(player_ID) {
 // == PROMPT GAME NAME ==
 function prompt_game_name() {
     let game_name = prompt("What should the round be called?");
+    
     if (game_name != "" && game_name != null) {
+        console.log(game_name);
         return game_name;
     } else {
-        return "Game 1";
+        const date = new Date();
+        game_name = date.getFullYear() + "/" + date.getMonth() + "/" + date.getUTCDate()
+        console.log(game_name);
+        if (game_name in games) {
+            for (let i = 1; i == -1; i++) {
+                if (!(game_name + " - " + i.toString() in games)) {
+                    return game_name + " - " + i.toString();
+                }
+            }
+        }
+        
     };
 };
 
@@ -158,7 +157,7 @@ function delete_current_game() {
     if (games == {}) {
         set_screen(new_game_screen);
     } else {
-        set_screen(game_selector_screen);
+        open_games_screen()
     }
 };
 
@@ -221,6 +220,19 @@ function set_screen(screen) {
 
     save();
 };
+
+// == OPEN GAME SELECTOR SCREEN ==
+function open_games_screen() {
+    game_cards.innerHTML = "";
+    Object.keys(games).forEach(game => {
+        draw_game_card(game);
+    });
+
+    set_screen(game_selector_screen);
+    player_cards.innerHTML = "";
+    current_game = ""
+    save();
+}
 
 // == DRAW PLAYER CARD ==
 function draw_player_card(player_id, player_name, player_score) {
