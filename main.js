@@ -82,21 +82,26 @@ function prompt_player_name(player_ID) {
 function prompt_game_name() {
 
     let temp_name = "";
+    let today = "";
     
     const date = new Date();
-    temp_name = date.getFullYear() + "/" + date.getMonth() + "/" + date.getUTCDate()
+    today = date.getFullYear() + "/" + date.getMonth() + "/" + date.getUTCDate();
+    temp_name = today;
+    
     if (temp_name in games) {
-        console.log("name already in list")
-        for (let i = 1; i == -1; i++) {
-            temp_name = temp_name + " - " + i.toString();
-            if (!(temp_name in games)) {
 
+        for (let i = 1; i != -1; i++) {
+
+            temp_name = today + " - " + i.toString();
+
+            if (!(temp_name in games)) {
+                temp_name = prompt("What should the round be called?", temp_name);
+                return temp_name;
             }
         }
     }
 
     temp_name = prompt("What should the round be called?", temp_name);
-
     return temp_name;
     
 };
