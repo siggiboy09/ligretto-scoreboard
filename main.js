@@ -57,7 +57,6 @@ function load_current_game() {
 }
 
 function play_game(game) {
-    console.log(game);
     current_game = game;
     load_current_game();
 }
@@ -81,24 +80,30 @@ function prompt_player_name(player_ID) {
 
 // == PROMPT GAME NAME ==
 function prompt_game_name() {
-    let game_name = prompt("What should the round be called?");
+
+    let temp_name = "";
+    let today = "";
     
-    if (game_name != "" && game_name != null) {
-        console.log(game_name);
-        return game_name;
-    } else {
-        const date = new Date();
-        game_name = date.getFullYear() + "/" + date.getMonth() + "/" + date.getUTCDate()
-        console.log(game_name);
-        if (game_name in games) {
-            for (let i = 1; i == -1; i++) {
-                if (!(game_name + " - " + i.toString() in games)) {
-                    return game_name + " - " + i.toString();
-                }
+    const date = new Date();
+    today = date.getFullYear() + "/" + date.getMonth() + "/" + date.getUTCDate();
+    temp_name = today;
+    
+    if (temp_name in games) {
+
+        for (let i = 1; i != -1; i++) {
+
+            temp_name = today + " - " + i.toString();
+
+            if (!(temp_name in games)) {
+                temp_name = prompt("What should the round be called?", temp_name);
+                return temp_name;
             }
         }
-        
-    };
+    }
+
+    temp_name = prompt("What should the round be called?", temp_name);
+    return temp_name;
+    
 };
 
 // == PROMPT CHANGE SCORE ==
