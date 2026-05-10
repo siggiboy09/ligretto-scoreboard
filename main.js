@@ -71,6 +71,7 @@ function play_game(game) {
 // == PROMPT PLAYER NAME ==
 function prompt_player_name(player_ID) {
     let player_name = prompt("What is player " + player_ID + "'s name?", "Player " + player_ID);
+
     if (player_name != "" && player_name != null) {
         return player_name;
     } else {
@@ -89,21 +90,26 @@ function prompt_game_name() {
     temp_name = today;
     
     if (temp_name in games) {
-
         for (let i = 1; i != -1; i++) {
-
             temp_name = today + " - " + i.toString();
-
             if (!(temp_name in games)) {
                 temp_name = prompt("What should the round be called?", temp_name);
-                return temp_name;
+                if (temp_name != "" && temp_name != null) {
+                    return temp_name;
+                } else {
+                    return today + " - " + i.toString();
+                }
             }
         }
     }
 
     temp_name = prompt("What should the round be called?", temp_name);
-    return temp_name;
-    
+
+    if (temp_name != "" && temp_name != null) {
+        return temp_name;
+    } else {
+        return today + " - " + i.toString();
+    }
 };
 
 // == PROMPT CHANGE SCORE ==
@@ -180,28 +186,42 @@ function delete_game_in_list(game) {
 // == NEW GAME ==
 function new_game() {
     let game_name = prompt_game_name()
-    games[game_name] ??= {};
-    current_game = game_name;
-    game_title.innerText = current_game;
+
+    if (game_name == null) {
+        return;
+    }
 
     let players = parseInt(prompt("How many players are going to play?", "4"));
+
+    if (!(isNaN(players))) {
+        games[game_name] ??= {};
+    } else {
+        return;
+    }
     
     if (!(isNaN(players) || players == 0)) {
+        // if (players == 0) {
+        //     players = 2;
+        // }
+
         for (i = 1; i <= players; i++) {
             let player_name = prompt_player_name(i);
-
+            
             if (player_name.includes(" ")) {  
                 player_id = player_name.replace(/ /g, "_");  
             }
-
+            
             games[current_game][player_id] ??= {};
             games[current_game][player_id].id = player_id;
             games[current_game][player_id].name = player_name;
             games[current_game][player_id].score = 0;
-
+            
             draw_player_card(player_id, player_name, 0);
         }
     };
+    
+    game_title.innerText = current_game;
+    current_game = game_name;
 
     save();
     set_screen(game_screen);
