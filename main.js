@@ -170,7 +170,7 @@ function delete_current_game() {
 function delete_game_in_list(game) {
     delete games[game];
 
-    if (games == {}) {
+    if (Object.keys(games).length === 0) {
         set_screen(new_game_screen);
     } else {
         open_games_screen();
