@@ -9,6 +9,8 @@ export default function PlayerCard() {
         <div className="player-card">
             <p className="player-name">{playerName}</p>
             <p className="player-score">{playerScore}</p>
+            <button className="player-minus">-</button>
+            <button className="player-plus">+</button>
         </div>
     )
 }
