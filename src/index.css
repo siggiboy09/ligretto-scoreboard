@@ -11,4 +11,60 @@ body {
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
+
+    text-align: center;
+    text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -webkit-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -moz-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+}
+
+button {
+    padding: 1rem;
+    margin: 0.5rem;
+
+    font-size: 1rem;
+
+    color: #9CB080;
+    background-color: #618764;
+    border: none;
+    border-radius: 11px;
+
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+
+    text-align: center;
+    text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -webkit-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -moz-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+}
+
+.delete-button {
+    background-color: #B23A48;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.card {
+    margin: auto;
+    margin-top: 15px;
+    padding: 0;
+
+    display: flow-root;
+
+    background-color: #2B5748;
+    border-radius: 11px;
+
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+
+    text-align: center;
+    text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -webkit-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -moz-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
 }
