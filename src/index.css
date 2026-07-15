@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    color: #9CB080;
+    background-color: #273338;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+
+    text-align: center;
+    text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -webkit-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -moz-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+}
+
+button {
+    padding: 1rem;
+    margin: 0.5rem;
+
+    font-size: 1rem;
+
+    color: #9CB080;
+    background-color: #618764;
+    border: none;
+    border-radius: 11px;
+
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+
+    text-align: center;
+    text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -webkit-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -moz-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+}
+
+.delete-button {
+    background-color: #B23A48;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.game-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.game-title {
+    margin: 0;
+}
+
+.game-edit-button {
+    margin: 0;
+    padding: 0;
+
+    width: 50px;
+    height: 50px;
+}
+
+.card {
+    margin: auto;
+    margin-top: 15px;
+    padding: 0;
+
+    display: flow-root;
+
+    background-color: #2B5748;
+    border-radius: 11px;
+
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+
+    text-align: center;
+    text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -webkit-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+    -moz-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
+}

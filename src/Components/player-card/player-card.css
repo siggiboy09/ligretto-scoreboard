@@ -1,0 +1,65 @@
+.player-card {
+    padding: 7px;
+
+    height: 150px;
+    width: min(90vw, 600px);
+
+    position: relative;
+}
+
+.player-name {
+    margin: 4px;
+    padding: 0;
+
+    font-size: 18px;
+}
+
+.player-score {
+    margin: 0;
+    padding: 0;
+
+    font-size: 45px;
+
+    position: absolute;
+    bottom: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.player-minus {
+    margin: 0;
+    padding: 0;
+
+    width: 47%;
+    height: 62px;
+
+    font-size: 45px;
+    position: absolute;
+    left: 7px;
+    bottom: 7px;
+}
+
+.player-plus {
+    margin: 0;
+    padding: 0;
+
+    width: 47%;
+    height: 62px;
+
+    font-size: 45px;
+    position: absolute;
+    right: 7px;
+    bottom: 7px;
+}
+
+.player-edit {
+    margin: 0;
+    padding: 0;
+
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    left: 7px;
+    top: 7px;
+}
