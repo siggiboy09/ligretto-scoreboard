@@ -49,6 +49,26 @@ button {
     left: 10px;
 }
 
+.game-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.game-title {
+    margin: 0;
+}
+
+.game-edit-button {
+    margin: 0;
+    padding: 0;
+
+    width: 50px;
+    height: 50px;
+}
+
 .card {
     margin: auto;
     margin-top: 15px;

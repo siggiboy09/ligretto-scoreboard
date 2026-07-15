@@ -114,10 +114,36 @@ export default function Game() {
         });
     };
 
+    const editGameName = () => {
+        const newName = prompt("Enter the new game name:", game.name);
+        if (newName === null) {
+            return;
+        }
+
+        const trimmedName = newName.trim();
+        if (trimmedName === "") {
+            alert("Game name cannot be empty.");
+            return;
+        }
+
+        setGame((prevGame) => {
+            const updatedGame: Game = {
+                ...prevGame,
+                name: trimmedName,
+            };
+
+            LocalStorage.saveGame(updatedGame);
+            return updatedGame;
+        });
+    };
+
     return (
         <main>
             <button className="back-button" onClick={() => navigate("/")}>Back</button>
-            <h1>{game.name}</h1>
+            <div className="game-title-row">
+                <h1 className="game-title">{game.name}</h1>
+                <button className="game-edit-button" onClick={editGameName}>Edit</button>
+            </div>
             {game.players.map((player) => (
                 <PlayerCard
                     key={player.id}
