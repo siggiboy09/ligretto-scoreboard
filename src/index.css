@@ -20,7 +20,7 @@ body {
 
 button {
     padding: 1rem;
-    margin: 0.5rem;
+    margin: 15px;
 
     font-size: 1rem;
 
@@ -45,8 +45,8 @@ button {
 
 .back-button {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 0;
+    left: 0;
 }
 
 .game-title-row {

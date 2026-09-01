@@ -22,8 +22,11 @@ export default function GameList() {
     };
 
     const deleteGame = (gameId: number) => {
-        LocalStorage.deleteGame(gameId);
-        refreshGames();
+        let answer = window.confirm("Delete game?");
+	if (answer) {
+            LocalStorage.deleteGame(gameId);
+            refreshGames();
+	}
     };
 
     const createGame = () => {

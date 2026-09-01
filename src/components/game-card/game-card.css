@@ -1,4 +1,4 @@
 .game-card {
     height: auto;
-    width: min(90vw, 500px);
+    width: min(calc(100vw - 20px), 500px);
 }
