@@ -2,10 +2,11 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
+import './index.css';
+
 import GameList from './pages/game-list';
 import Game from './pages/game';
 
-import './index.css';
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

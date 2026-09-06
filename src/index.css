@@ -18,6 +18,8 @@ body {
     -moz-text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
 }
 
+
+/* #### BUTTONS #### */
 button {
     padding: 1rem;
     margin: 15px;
@@ -49,6 +51,16 @@ button {
     left: 0;
 }
 
+.game-edit-button {
+    margin: 0;
+    padding: 0;
+
+    width: 50px;
+    height: 50px;
+}
+
+
+/* #### GAME TITLE #### */
 .game-title-row {
     display: flex;
     align-items: center;
@@ -61,14 +73,8 @@ button {
     margin: 0;
 }
 
-.game-edit-button {
-    margin: 0;
-    padding: 0;
 
-    width: 50px;
-    height: 50px;
-}
-
+/* #### CARD #### */
 .card {
     margin: auto;
     margin-top: 15px;

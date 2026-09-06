@@ -13,9 +13,7 @@ export default function GameCard({ game, onOpenGame, onDeleteGame }: GameCardPro
         <section className="card game-card">
             <h2>{game.name}</h2>
             <button onClick={() => onOpenGame(game.id)}>Go to game</button>
-            <button className="delete-button" onClick={() => onDeleteGame(game.id)}>
-                Delete
-            </button>
+            <button className="delete-button" onClick={() => onDeleteGame(game.id)}>Delete</button>
         </section>
     );
 }

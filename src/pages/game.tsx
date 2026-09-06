@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { LocalStorage } from "../components/localstorage";
-import PlayerCard from "../components/player-card/player-card";
 import type { Game } from "../types";
+
+import PlayerCard from "../components/player-card/player-card";
+
 
 const emptyGame: Game = {
     id: 0,
@@ -16,11 +19,13 @@ export default function Game() {
 
     useEffect(() => {
         const activeGameId = LocalStorage.getActiveGameId();
+
         if (activeGameId === null) {
             return;
         }
 
         const savedGame = LocalStorage.loadGame(activeGameId);
+
         if (savedGame) {
             setGame(savedGame);
         }
@@ -43,19 +48,25 @@ export default function Game() {
             };
 
             LocalStorage.saveGame(updatedGame);
+
             return updatedGame;
         });
     };
 
     const addPoint = (playerId: number) => {
-        const value = prompt("Enter the value to add to the score:", "0");
+        const value = prompt("Enter a value to add to the score:", "0");
+
         if (value === null) {
+            alert("No value given");
+
             return;
         }
 
         const pointsToAdd = parseInt(value, 10);
+
         if (isNaN(pointsToAdd)) {
             alert("Invalid input. Please enter a valid number.");
+
             return;
         }
 
@@ -63,14 +74,19 @@ export default function Game() {
     };
 
     const removePoint = (playerId: number) => {
-        const value = prompt("Enter the value to remove from the score:", "0");
+        const value = prompt("Enter a value to remove from the score:", "0");
+
         if (value === null) {
+            alert("No value given");
+
             return;
         }
 
         const pointsToRemove = parseInt(value, 10);
+
         if (isNaN(pointsToRemove)) {
             alert("Invalid input. Please enter a valid number.");
+
             return;
         }
 
@@ -79,16 +95,20 @@ export default function Game() {
 
     const editPlayerName = (playerId: number) => {
         const player = game.players.find((entry) => entry.id === playerId);
+
         if (!player) {
             return;
         }
 
         const newName = prompt("Enter the new player name:", player.name);
+
         if (newName === null) {
+            alert("No value given");
             return;
         }
 
         const trimmedName = newName.trim();
+
         if (trimmedName === "") {
             alert("Player name cannot be empty.");
             return;
@@ -110,17 +130,21 @@ export default function Game() {
             };
 
             LocalStorage.saveGame(updatedGame);
+
             return updatedGame;
         });
     };
 
     const editGameName = () => {
         const newName = prompt("Enter the new game name:", game.name);
+
         if (newName === null) {
+            alert("no value given");
             return;
         }
 
         const trimmedName = newName.trim();
+
         if (trimmedName === "") {
             alert("Game name cannot be empty.");
             return;
@@ -133,6 +157,7 @@ export default function Game() {
             };
 
             LocalStorage.saveGame(updatedGame);
+
             return updatedGame;
         });
     };
@@ -140,10 +165,12 @@ export default function Game() {
     return (
         <main>
             <button className="back-button" onClick={() => navigate("/")}>Back</button>
+
             <div className="game-title-row">
                 <h1 className="game-title">{game.name}</h1>
                 <button className="game-edit-button" onClick={editGameName}>Edit</button>
             </div>
+
             {game.players.map((player) => (
                 <PlayerCard
                     key={player.id}
