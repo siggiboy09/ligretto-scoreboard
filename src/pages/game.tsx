@@ -54,7 +54,7 @@ export default function Game() {
     };
 
     const addPoint = (playerId: number) => {
-        const value = prompt("Enter a value to add to the score:", "0");
+        const value = prompt("Enter a value to add to the score:");
 
         if (value === null) {
             alert("No value given");
@@ -74,7 +74,7 @@ export default function Game() {
     };
 
     const removePoint = (playerId: number) => {
-        const value = prompt("Enter a value to remove from the score:", "0");
+        const value = prompt("Enter a value to remove from the score:");
 
         if (value === null) {
             alert("No value given");
