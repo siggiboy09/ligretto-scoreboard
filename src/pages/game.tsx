@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { LocalStorage } from "../components/localstorage";
+import { Games } from "../components/games";
 import type { Game } from "../types";
 
 import PlayerCard from "../components/player-card/player-card";
@@ -18,13 +18,13 @@ export default function Game() {
     const [game, setGame] = useState<Game>(emptyGame);
 
     useEffect(() => {
-        const activeGameId = LocalStorage.getActiveGameId();
+        const activeGameId = Games.getActiveGameId();
 
         if (activeGameId === null) {
             return;
         }
 
-        const savedGame = LocalStorage.loadGame(activeGameId);
+        const savedGame = Games.loadGame(activeGameId);
 
         if (savedGame) {
             setGame(savedGame);
@@ -47,7 +47,7 @@ export default function Game() {
                 }),
             };
 
-            LocalStorage.saveGame(updatedGame);
+            Games.saveGame(updatedGame);
 
             return updatedGame;
         });
@@ -129,7 +129,7 @@ export default function Game() {
                 }),
             };
 
-            LocalStorage.saveGame(updatedGame);
+            Games.saveGame(updatedGame);
 
             return updatedGame;
         });
@@ -156,7 +156,7 @@ export default function Game() {
                 name: trimmedName,
             };
 
-            LocalStorage.saveGame(updatedGame);
+            Games.saveGame(updatedGame);
 
             return updatedGame;
         });

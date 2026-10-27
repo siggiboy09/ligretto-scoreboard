@@ -4,6 +4,26 @@ import { LocalStorage } from "./localstorage";
 import type { Game } from "../types";
 
 export class Games {
+    static getAllGames(): Game[] {
+        return LocalStorage.getAllGames();
+    }
+
+    static getActiveGameId(): number | null {
+        return LocalStorage.getActiveGameId();
+    }
+
+    static setActiveGameId(gameId: number) {
+        LocalStorage.setActiveGameId(gameId);
+    }
+
+    static loadGame(gameId: number): Game | null {
+        return LocalStorage.loadGame(gameId);
+    }
+
+    static saveGame(game: Game) {
+        LocalStorage.saveGame(game);
+    }
+
     static createGame(navigate: NavigateFunction) {
 
         const name = window.prompt("Enter the game name:");

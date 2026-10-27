@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { LocalStorage } from "../components/localstorage";
 import { Games } from "../components/games";
 import type { Game } from "../types";
 
@@ -13,7 +12,7 @@ export default function GameList() {
     const [games, setGames] = useState<Game[]>([]);
 
     const refreshGames = () => {
-        setGames(LocalStorage.getAllGames());
+        setGames(Games.getAllGames());
     };
 
     useEffect(() => {
@@ -21,7 +20,7 @@ export default function GameList() {
     }, []);
 
     const openGame = (gameId: number) => {
-        LocalStorage.setActiveGameId(gameId);
+        Games.setActiveGameId(gameId);
         navigate("/game");
     };
 
