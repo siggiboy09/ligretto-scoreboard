@@ -1,8 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+:root {
+    /* #### COLOR #### */
+    --bg: #222222;
+    --primary: #ff7a32;
+    --danger: #FF4931;
+    --bg-1: #F5E7C6;
+    --bg-2: #FAF3E1;
+    --text: #FFFEED;
+    --text-dark: #3c3c39;
+
+    /* #### VARIABLES #### */
+    --border-radius: 7px;
+}
+
 body {
-    color: #9CB080;
-    background-color: #273338;
+    color: var(--text);
+    background-color: var(--bg);
 
     margin: 0;
     padding: 0;
@@ -26,15 +40,15 @@ button {
 
     font-size: 1rem;
 
-    color: #9CB080;
-    background-color: #618764;
+    color: var(--text);
+    background-color: var(--primary);
     border: none;
-    border-radius: 11px;
+    border-radius: var(--border-radius);
     cursor: pointer;
 
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
 
     text-align: center;
     text-shadow: 0px 2px 2px rgba(0,0,0,0.25);
@@ -43,7 +57,7 @@ button {
 }
 
 .delete-button {
-    background-color: #B23A48;
+    background-color: var(--danger);
 }
 
 .back-button {
@@ -83,8 +97,9 @@ button {
 
     display: flow-root;
 
-    background-color: #2B5748;
-    border-radius: 11px;
+    color: var(--text-dark);
+    background-color: var(--bg-1);
+    border-radius: var(--border-radius);
 
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
